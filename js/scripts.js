@@ -15,12 +15,12 @@ $(window).scroll(function() {
   if ($(window).scrollTop() > 46) {
     $(".main-menu-wrapper").addClass("menu-fixed");
     $(".header").css({
-      paddingTop: 46
+      marginTop: 46
     });
   } else {
     $(".main-menu-wrapper").removeClass("menu-fixed");
     $(".header").css({
-      paddingTop: 0
+      marginTop: 0
     });
   }
 

@@ -32,7 +32,6 @@ a:hover {
   position:absolute;
   top:46px;
   z-index:1;
-  border-bottom:3px solid #ecd3a4;
 }
 
 .main-video .center-wrapper {
@@ -40,6 +39,7 @@ a:hover {
 }
 
 .main-video .video-cont {
+  border-bottom:3px solid #ecd3a4;
   width:1600px;
   height:694px;
   margin:0 -310px;
@@ -49,11 +49,10 @@ a:hover {
 .main-video .video-mask {
   width:1600px;
   height:153px;
-  margin:0 -310px;
   background:url(images/video-mask.png) 0 0 repeat-x;
   position:absolute;
   z-index:2;
-  left:0;
+  left:-300px;
   top:0;
 }
 
@@ -65,7 +64,7 @@ a:hover {
   overflow:hidden;
   left:50%;
   top:266px;
-  margin-left:-190px;
+  margin-left:-480px;
 }
 
 .form-item,
