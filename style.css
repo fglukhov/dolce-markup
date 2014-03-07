@@ -1598,7 +1598,7 @@ ul.accordion li .bgDescription{
 .block-order-2 {
   position:relative;
   height:461px;
-  background:url(images/block-order-2-bg.png) center bottom no-repeat;
+  background:#f9f0de url(images/block-order-2-bg.png) center bottom no-repeat;
 }
 
 .order-form-2-wrapper {
