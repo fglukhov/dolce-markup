@@ -64,11 +64,110 @@ $(window).scroll(function() {
 
 $(document).ready(function () {
 
-  // $(".we-do-item img").hover(function() {
-    // $(this).parents(".we-do-item").find(".tooltip").fadeIn(150)
-  // },function() {
-    // $(this).parents(".we-do-item").find(".tooltip").hide()
-  // })
+	// Наши преимущества, попапы
+	
+	$(".pros-item .descr, .pros-item .pic").click(function() {
+		var tooltip = $(this).parents(".pros-item").find(".pros-tooltip");
+		
+		$(".pros-item .pros-tooltip").hide();
+		$(".pros-item-act").removeClass("pros-item-act");
+		
+		tooltip.fadeIn(200);
+		
+		$(this).parents(".pros-item").addClass("pros-item-act")
+		
+	});
+	
+	$(".pros-tooltip .close").click(function() {
+		$(this).parents(".pros-tooltip").fadeOut(150);
+		$(this).parents(".pros-item").removeClass("pros-item-act");
+	});
+	
+	$(document).mouseup(function (e) {
+    var container1 = $(".pros-tooltip");
+    var container2 = $(".pros-item .descr, .pros-item .pic");
+
+    if (!container1.is(e.target) && !container2.is(e.target) // if the target of the click isn't the container...
+        && container1.has(e.target).length === 0 && container2.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        container1.fadeOut(150);
+				$(".pros-item-act").removeClass("pros-item-act");
+    }
+  });
+
+	// Наши преимущества, попапы END
+
+	// Наши услуги, попапы
+	
+	$(".services-item .descr, .services-item .pic").click(function() {
+		var tooltip = $(this).parents(".services-item").find(".pros-tooltip");
+		
+		$(".services-item .pros-tooltip").hide();
+		$(".services-item-act").removeClass("services-item-act");
+		
+		tooltip.fadeIn(200);
+		
+		$(this).parents(".services-item").addClass("services-item-act")
+		
+	});
+	
+	$(".pros-tooltip .close").click(function() {
+		$(this).parents(".pros-tooltip").fadeOut(150);
+		$(this).parents(".services-item").removeClass("services-item-act");
+	});
+	
+	$(document).mouseup(function (e) {
+    var container1 = $(".pros-tooltip");
+    var container2 = $(".services-item .descr, .services-item .pic");
+
+    if (!container1.is(e.target) && !container2.is(e.target) // if the target of the click isn't the container...
+        && container1.has(e.target).length === 0 && container2.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        container1.fadeOut(150);
+				$(".services-item-act").removeClass("services-item-act");
+    }
+  });
+
+	// Наши услуги, попапы END
+	
+	// Бюджет, попапы
+	
+	$(".budget-item .descr, .budget-item .pic").click(function() {
+		var tooltip = $(this).parents(".budget-item").find(".budget-tooltip");
+		
+		$(".budget-item .budget-tooltip").hide();
+		$(".budget-item-act").removeClass("budget-item-act");
+		
+		tooltip.fadeIn(200);
+		
+		$(this).parents(".budget-item").addClass("budget-item-act")
+		
+	});
+	
+	$(".budget-tooltip .close").click(function() {
+		$(this).parents(".budget-tooltip").fadeOut(150);
+		$(this).parents(".budget-item").removeClass("budget-item-act");
+	});
+	
+	$(document).mouseup(function (e) {
+    var container1 = $(".budget-tooltip");
+    var container2 = $(".budget-item .descr, .budget-item .pic");
+
+    if (!container1.is(e.target) && !container2.is(e.target) // if the target of the click isn't the container...
+        && container1.has(e.target).length === 0 && container2.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+        container1.fadeOut(150);
+				$(".budget-item-act").removeClass("budget-item-act");
+    }
+  });
+
+	// Бюджет, попапы END
+	
+  $(".we-do-item img").hover(function() {
+    $(this).parents(".we-do-item").find(".tooltip").fadeIn(150)
+  },function() {
+    $(this).parents(".we-do-item").find(".tooltip").hide()
+  })
 
   $(".main-menu a").click(function() {
     
