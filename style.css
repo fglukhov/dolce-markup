@@ -2399,6 +2399,9 @@ color: #C9AF7C;
 	width: 460px;
 	margin:20px 0 0 0;
 	left:-113px;
+	-webkit-box-shadow:0 0 30px 0 rgba(0,0,0,.2);
+	-moz-box-shadow:0 0 30px 0 rgba(0,0,0,.2);
+	box-shadow:0 0 30px 0 rgba(0,0,0,.2);
 }
 
 .pros-tooltip .tooltip-content {
@@ -2408,16 +2411,32 @@ color: #C9AF7C;
 
 .budget-tooltip {
   border-color: #7cded4;
-	left: -20px;
+	left: -195px;
 	top: -40px;
-	width: 320px;
+	width: 670px;
+	font-size:13px;
+	line-height:16px;
+}
+
+.budget-tooltip .ttl {
+  line-height:24px;
+}
+
+.budget-item:first-child .budget-tooltip {
+  left:-20px;
+}
+
+.budget-item:last-child .budget-tooltip {
+  right:-20px;
+	left:auto;
 }
 
 .budget-tooltip .tooltip-content {
   padding:21px 22px 22px 22px;
 }
 
-.pros-tooltip p {
+.pros-tooltip p,
+.budget-tooltip p {
   margin:0 0 10px 0;
 }
 
