@@ -1,4 +1,4 @@
-﻿var urlPath = "/layout/dolce/";
+﻿var urlPath = "/feedback/send/";
 
 $(window).resize(function() {
   $("body").css("width","");
@@ -64,25 +64,30 @@ $(window).scroll(function() {
 
 $(document).ready(function () {
 
+	// Запуск верхнего слайдера
+	if ($(".top-slider").length) {
+		$(".top-slider").topSlider();
+	}
+
 	// Наши преимущества, попапы
-	
+
 	$(".pros-item .descr, .pros-item .pic").click(function() {
 		var tooltip = $(this).parents(".pros-item").find(".pros-tooltip");
-		
+  		if($(tooltip).find('.tooltip-content').text()=='') return true;
 		$(".pros-item .pros-tooltip").hide();
 		$(".pros-item-act").removeClass("pros-item-act");
-		
+
 		tooltip.fadeIn(200);
-		
+
 		$(this).parents(".pros-item").addClass("pros-item-act")
-		
+
 	});
-	
+
 	$(".pros-tooltip .close").click(function() {
 		$(this).parents(".pros-tooltip").fadeOut(150);
 		$(this).parents(".pros-item").removeClass("pros-item-act");
 	});
-	
+
 	$(document).mouseup(function (e) {
     var container1 = $(".pros-tooltip");
     var container2 = $(".pros-item .descr, .pros-item .pic");
@@ -98,24 +103,24 @@ $(document).ready(function () {
 	// Наши преимущества, попапы END
 
 	// Наши услуги, попапы
-	
+
 	$(".services-item .descr, .services-item .pic").click(function() {
 		var tooltip = $(this).parents(".services-item").find(".pros-tooltip");
-		
+  		if($(tooltip).find('.tooltip-content').text()=='') return true;
 		$(".services-item .pros-tooltip").hide();
 		$(".services-item-act").removeClass("services-item-act");
-		
+
 		tooltip.fadeIn(200);
-		
+
 		$(this).parents(".services-item").addClass("services-item-act")
-		
+
 	});
-	
+
 	$(".pros-tooltip .close").click(function() {
 		$(this).parents(".pros-tooltip").fadeOut(150);
 		$(this).parents(".services-item").removeClass("services-item-act");
 	});
-	
+
 	$(document).mouseup(function (e) {
     var container1 = $(".pros-tooltip");
     var container2 = $(".services-item .descr, .services-item .pic");
@@ -129,26 +134,26 @@ $(document).ready(function () {
   });
 
 	// Наши услуги, попапы END
-	
+
 	// Бюджет, попапы
-	
+
 	$(".budget-item .descr, .budget-item .pic").click(function() {
 		var tooltip = $(this).parents(".budget-item").find(".budget-tooltip");
-		
+  		if($(tooltip).find('.tooltip-content').text()=='') return true;
 		$(".budget-item .budget-tooltip").hide();
 		$(".budget-item-act").removeClass("budget-item-act");
-		
+
 		tooltip.fadeIn(200);
-		
+
 		$(this).parents(".budget-item").addClass("budget-item-act")
-		
+
 	});
-	
+
 	$(".budget-tooltip .close").click(function() {
 		$(this).parents(".budget-tooltip").fadeOut(150);
 		$(this).parents(".budget-item").removeClass("budget-item-act");
 	});
-	
+
 	$(document).mouseup(function (e) {
     var container1 = $(".budget-tooltip");
     var container2 = $(".budget-item .descr, .budget-item .pic");
@@ -162,7 +167,6 @@ $(document).ready(function () {
   });
 
 	// Бюджет, попапы END
-	
   $(".we-do-item img").hover(function() {
     $(this).parents(".we-do-item").find(".tooltip").fadeIn(150)
   },function() {
@@ -262,103 +266,71 @@ $(document).ready(function () {
 
   validateForms();
   
-  $("#orderForm1").submit(function() {
-    if ($("#orderForm1").valid()) {
-      //$(".loader").show();
-	  var form = $("#orderForm1");
-      $.ajax({
-        type: "POST",
-        url: urlPath+"order.php",
-          data: { 
-            subject: "Dolce Wedding, заявка на мероприятие", 
-            kind: $("#order_1_kind").val(), 
-            name: $("#order_1_name").val(), 
-            phone: $("#order_1_phone").val(),
-            email: $("#order_1_email").val()
-          }
-        }).done(function() {
-        
-        formSuccess(form,"successPopup1")
-        
-      });
-      return false;
-    }
+	$("#orderForm1").submit(function() {
+		if ($("#orderForm1").valid()) {
+			//$(".loader").show();
+			var form = $("#orderForm1");
+			var data = $(form).serialize();
+			$.ajax({
+				type: "POST",
+				url: urlPath,
+				data: data
+			}).done(function() {
+				formSuccess(form,"successPopup1")
+			});
+			return false;
+		}
 	});
   
-  $("#orderForm2").submit(function() {
-    if ($("#orderForm2").valid()) {
-      //$(".loader").show();
-	  var form = $("#orderForm2");
-      $.ajax({
-        type: "POST",
-        url: urlPath+"order.php",
-          data: { 
-            subject: "Dolce Wedding, заявка на мероприятие", 
-            kind: $("#order_2_kind").val(), 
-            name: $("#order_2_name").val(), 
-            phone: $("#order_2_phone").val(),
-            email: $("#order_2_email").val(),
-            date: $("#order_2_date").val(),
-            message: $("#order_2_message").val()
-          }
-        }).done(function() {
-        
-        formSuccess(form,"successPopup1")
-        
-      });
-      return false;
-    }
+	$("#orderForm2").submit(function() {
+		if ($("#orderForm2").valid()) {
+			//$(".loader").show();
+			var form = $("#orderForm2");
+			var data = $(form).serialize();
+			$.ajax({
+				type: "POST",
+				url: urlPath,
+				data:data
+			}).done(function() {
+            	formSuccess(form,"successPopup1")
+			});
+			return false;
+		}
 	});
   
-  $("#orderForm3").submit(function() {
-    if ($("#orderForm3").valid()) {
-      //$(".loader").show();
-	  var form = $("#orderForm3");
-      $.ajax({
-        type: "POST",
-        url: urlPath+"order.php",
-          data: { 
-            subject: "Dolce Wedding, заявка на мероприятие", 
-            kind: $("#order_3_kind").val(), 
-            name: $("#order_3_name").val(), 
-            phone: $("#order_3_phone").val(),
-            email: $("#order_3_email").val(),
-            message: $("#order_3_message").val()
-          }
-        }).done(function() {
-        
-        formSuccess(form,"successPopup1")
-        
-      });
-      return false;
-    }
+	$("#orderForm3").submit(function() {
+		if ($("#orderForm3").valid()) {
+			//$(".loader").show();
+			var form = $("#orderForm3");
+			var data = $(form).serialize();
+			$.ajax({
+				type: "POST",
+				url: urlPath,
+				data: data
+			}).done(function() {
+				formSuccess(form,"successPopup1")
+			});
+			return false;
+		}
 	});
   
-  $("#callbackForm").submit(function() {
-    if ($("#callbackForm").valid()) {
-      //$(".loader").show();
-	  var form = $("#callbackForm");
-      $.ajax({
-        type: "POST",
-        url: urlPath+"order.php",
-          data: { 
-            subject: "Dolce Wedding, обратный звонок", 
-            kind: $("#callback_kind").val(), 
-            name: $("#callback_name").val(), 
-            phone: $("#callback_phone").val(),
-            time: $("select#callback_time option[value='"+$("#callback_time").val()+"']").html()
-          }
-        }).done(function() {
-        
-        formSuccess(form,"successPopup2")
-        
-      });
-      return false;
-    }
+	$("#callbackForm").submit(function() {
+		if ($("#callbackForm").valid()) {
+			//$(".loader").show();
+			var form = $("#callbackForm");
+			var data = $(form).serialize();
+			$.ajax({
+				type: "POST",
+				url: urlPath,
+				data: data
+			}).done(function() {
+				formSuccess(form,"successPopup2")
+			});
+			return false;
+		}
 	});
 
   makeup();
-  
 });
 
 function makeup() {
@@ -915,3 +887,85 @@ function formSuccess(obForm,successPopupId) {
   
   
 }
+
+(function( jQuery ) {
+  jQuery.fn.topSlider = function() {
+  
+  
+    var slider = $(this);
+    var slides = slider.find(".slide");
+    var sliderSize = slides.size();
+    
+    slides.hide();
+    slides.eq(0).show().addClass("slide-act");
+    
+    slides.wrapAll("<div class='slides' />");
+		
+		var descr = slider.find(".slide-act .descr");
+		
+		descr.css({
+			marginTop: -descr.height()/2 + 60
+		})
+    
+    //sliderMakeup();
+    
+    if (sliderSize > 1) {
+      
+      slider.append("<div class='next' />");
+      slider.append("<div class='prev' />");
+      
+      var prevBtn = slider.find(".prev");
+      var nextBtn = slider.find(".next");
+      
+      nextBtn.click(function() {
+        curIndex = parseInt(slider.find(".slide-act").prevAll(".slide").length)
+        slides.fadeOut(500).removeClass("slide-act");
+        if (curIndex < sliderSize-1) {
+          curIndex++;
+        } else {
+          curIndex = 0;
+        }
+        slides.eq(curIndex).fadeIn(500).addClass("slide-act");
+				var descr = slider.find(".slide-act .descr");
+		
+				descr.css({
+					marginTop: -descr.height()/2 + 60
+				})
+      });
+      
+      prevBtn.click(function() {
+        curIndex = parseInt(slider.find(".slide-act").prevAll(".slide").length)
+        slides.fadeOut(500).removeClass("slide-act");
+        if (curIndex > 0) {
+          curIndex--;
+        } else {
+          curIndex = slides.length-1;
+        }
+        slides.eq(curIndex).fadeIn(500).addClass("slide-act");
+				var descr = slider.find(".slide-act .descr");
+		
+				descr.css({
+					marginTop: -descr.height()/2 + 60
+				})
+      });
+			
+			slides.bind("click",function () {
+        nextBtn.click();
+      });
+			
+			timer = setInterval( function() {
+				nextBtn.click()
+			}, 5000);
+			
+			slider.hover(function(ev){
+				clearInterval(timer);
+			}, function(ev){
+				timer = setInterval( function() {
+					nextBtn.click()
+				}, 5000);
+			});
+			
+    }
+    
+  }
+})( jQuery );
