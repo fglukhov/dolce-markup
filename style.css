@@ -2627,7 +2627,7 @@ color: #C9AF7C;
 
 .top-slider .descr .cont {
   margin: 20px;
-	padding: 42px 30px 17px 36px;
+	padding: 42px 30px 41px 36px;
 	border: 2px solid #ecd3a4;
 	font-family: 'Georgia',serif;
 }
@@ -2642,6 +2642,7 @@ color: #C9AF7C;
   font-size:16px;
 	line-height:20px;
 	font-style:italic;
+	margin:0 0 21px 0;
 }
 
 .top-slider .descr p {
@@ -2655,4 +2656,16 @@ color: #C9AF7C;
 	position: absolute;
 	left: 58px;
 	top: -5px;
+}
+
+.top-slider .anchor-link {
+  text-transform:uppercase;
+	font-size:16px;
+	line-height:20px;
+	text-decoration:none;
+	border-bottom:1px dotted #a37f3c;
+}
+
+.top-slider .anchor-link:hover {
+  border:none;
 }

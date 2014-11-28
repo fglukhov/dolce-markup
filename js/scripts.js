@@ -181,6 +181,15 @@ $(document).ready(function () {
     
     return false;
   });
+	
+	$(".anchor-link").click(function() {
+    
+    $("html,body").animate({
+      scrollTop: $("a[name='"+$(this).attr("href").replace("#","")+"']").offset().top - 20
+    },1000);
+    
+    return false;
+  });
 
   if ($(".contacts-slider").length) {
     $(".contacts-slider").each(function() {
